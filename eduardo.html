@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta - Eduardo Regalado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles" aria-hidden="true"></div>
+    <div class="profile-container">
+        <div class="avatar">
+            <img src="eduardo.jpg" alt="Avatar de Eduardo Regalado">
+        </div>
+        <div class="card-content">
+            <div class="description">
+                <h2>Eduardo Regalado</h2>
+                <p>Especializado en sistemas de tratamiento, bombeo y gestión del agua.</p>
+            </div>
+            <div class="social-buttons">
+                <a href="https://wa.link/kije59" class="social-btn whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.linkedin.com/in/cesar-regalado-4a874760/" class="social-btn linkedin" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:eregalado@aquaequipos.com" class="social-btn mail"><i class="fas fa-envelope"></i> Correo</a>
+                <a href="https://drive.google.com/file/d/1r1m7yRCJwwA18IK8USd_25QkP3c-MOD1/view?usp=sharing" class="social-btn catalog" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Catálogo</a>
+            </div>
+        </div>
+    </div>
+    <script>
+    // Ripple effect for social buttons (same as in index)
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('.social-btn');
+        if (!btn) return;
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        btn.appendChild(ripple);
+        setTimeout(() => { ripple.remove(); }, 650);
+    });
+    </script>
+</body>
+</html>
