@@ -341,8 +341,17 @@ body::before {
 
 .instagram { background: linear-gradient(90deg, rgba(255,75,120,0.95), rgba(255,107,148,0.95)); }
 .linkedin { background: linear-gradient(90deg, rgba(0,119,181,0.95), rgba(0,98,160,0.95)); }
+.whatsapp { background: linear-gradient(90deg, #25D366 0%, #128C7E 100%); }
+.mail { background: linear-gradient(90deg, #D44638 0%, #C33D2E 100%); }
+.catalog { background: linear-gradient(90deg, #6C63FF 0%, #4A45E6 100%); }
 .twitter { background: linear-gradient(90deg, rgba(29,161,242,0.95), rgba(14,165,233,0.95)); }
 .github { background: linear-gradient(90deg, rgba(60,60,60,0.95), rgba(20,20,20,0.95)); }
+
+/* Hover accents por red */
+.social-btn.whatsapp:hover { filter: brightness(1.06); transform: translateY(-6px) scale(1.01); box-shadow: 0 16px 36px rgba(37,211,102,0.12); }
+.social-btn.linkedin:hover { filter: brightness(1.06); transform: translateY(-6px) scale(1.01); box-shadow: 0 16px 36px rgba(0,119,181,0.12); }
+.social-btn.mail:hover { filter: brightness(1.06); transform: translateY(-6px) scale(1.01); box-shadow: 0 16px 36px rgba(212,70,56,0.12); }
+.social-btn.catalog:hover { filter: brightness(1.06); transform: translateY(-6px) scale(1.01); box-shadow: 0 16px 36px rgba(108,99,255,0.12); }
 
 /* Ajustes responsivos */
 @media (max-width: 420px) {
