@@ -154,16 +154,58 @@ body::before {
 .hero-avatar {
     width: clamp(120px, 35vw, 200px);
     height: clamp(120px, 35vw, 200px);
-    border-radius: 50%;
-    object-fit: cover;
+    border-radius: 20px;
     border: 5px solid var(--gold-primary);
     box-shadow: 
         0 0 30px rgba(255, 215, 0, 0.5),
         0 0 60px rgba(255, 215, 0, 0.3),
+        0 10px 40px rgba(0, 0, 0, 0.6),
         inset 0 0 20px rgba(255, 215, 0, 0.1);
     position: relative;
     z-index: 3;
-    background: #000;
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.15) 0%, 
+        rgba(212, 175, 55, 0.25) 50%, 
+        rgba(255, 237, 78, 0.15) 100%);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-avatar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(255, 215, 0, 0.3) 50%, 
+        transparent 70%);
+    animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0%, 100% {
+        transform: translateX(-100%) translateY(-100%);
+    }
+    50% {
+        transform: translateX(100%) translateY(100%);
+    }
+}
+
+.avatar-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 12vw, 5rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    z-index: 2;
+    position: relative;
+    letter-spacing: 3px;
 }
 
 .golden-ring {
