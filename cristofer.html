@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristofer Pérez - Digital Business Cards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="golden-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Particulas doradas animadas -->
+    <div class="golden-particles"></div>
+    
+    <!-- Contenedor principal -->
+    <div class="landing-container">
+        <!-- Sección Hero -->
+        <div class="hero-section">
+            <div class="golden-glow"></div>
+            <div class="avatar-container">
+                <div class="golden-ring"></div>
+                <div class="golden-ring-2"></div>
+                <img src="cristofer.jpg" alt="Cristofer Pérez" class="hero-avatar">
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="golden-text">Cristofer</span> Pérez
+            </h1>
+            
+            <div class="title-divider">
+                <span class="golden-dot"></span>
+                <span class="golden-line"></span>
+                <span class="golden-dot"></span>
+            </div>
+            
+            <p class="hero-subtitle">Creador de Experiencias Digitales Premium</p>
+            
+            <div class="hero-description">
+                <p>Transformando la manera en que los profesionales se presentan al mundo.</p>
+                <p class="golden-accent">Tarjetas de presentación digitales de élite</p>
+            </div>
+        </div>
+
+        <!-- Sección de Redes Sociales -->
+        <div class="social-section">
+            <h2 class="section-title">Conectemos</h2>
+            
+            <div class="social-grid">
+                <a href="https://wa.me/50233074483" class="golden-card whatsapp-card" target="_blank" rel="noopener noreferrer">
+                    <div class="card-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>WhatsApp</h3>
+                        <p>Conversemos</p>
+                    </div>
+                    <div class="card-shine"></div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/cristofer-perez-8b4b67140" class="golden-card linkedin-card" target="_blank" rel="noopener noreferrer">
+                    <div class="card-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>LinkedIn</h3>
+                        <p>Red Profesional</p>
+                    </div>
+                    <div class="card-shine"></div>
+                </a>
+
+                <a href="https://github.com/DancingAlien96" class="golden-card github-card" target="_blank" rel="noopener noreferrer">
+                    <div class="card-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>GitHub</h3>
+                        <p>Proyectos</p>
+                    </div>
+                    <div class="card-shine"></div>
+                </a>
+
+                <a href="mailto:cristoferperez3@gmail.com" class="golden-card email-card">
+                    <div class="card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Email</h3>
+                        <p>Contacto Directo</p>
+                    </div>
+                    <div class="card-shine"></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer con marca -->
+        <div class="footer-section">
+            <div class="golden-signature">
+                <span class="signature-line"></span>
+                <span class="signature-text">Premium Digital Cards</span>
+                <span class="signature-line"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Crear partículas doradas flotantes
+        function createGoldenParticles() {
+            const container = document.querySelector('.golden-particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Efecto de brillo en las tarjetas
+        document.querySelectorAll('.golden-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', x + 'px');
+                card.style.setProperty('--mouse-y', y + 'px');
+            });
+        });
+
+        // Inicializar partículas
+        createGoldenParticles();
+
+        // Animación de entrada
+        window.addEventListener('load', () => {
+            document.querySelector('.landing-container').classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
