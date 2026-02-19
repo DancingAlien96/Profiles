@@ -152,8 +152,8 @@ body::before {
 }
 
 .hero-avatar {
-    width: 200px;
-    height: 200px;
+    width: clamp(120px, 35vw, 200px);
+    height: clamp(120px, 35vw, 200px);
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid var(--gold-primary);
@@ -171,8 +171,8 @@ body::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 240px;
-    height: 240px;
+    width: clamp(160px, 42vw, 240px);
+    height: clamp(160px, 42vw, 240px);
     border-radius: 50%;
     border: 2px solid var(--gold-metallic);
     box-shadow: 
@@ -187,8 +187,8 @@ body::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 280px;
-    height: 280px;
+    width: clamp(200px, 50vw, 280px);
+    height: clamp(200px, 50vw, 280px);
     border-radius: 50%;
     border: 1px solid rgba(255, 215, 0, 0.3);
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
@@ -321,19 +321,20 @@ body::before {
 
 .social-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
     max-width: 900px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 /* Tarjetas doradas */
 .golden-card {
     position: relative;
-    padding: 40px 30px;
+    padding: clamp(25px, 5vw, 40px) clamp(20px, 4vw, 30px);
     background: linear-gradient(135deg, rgba(20, 20, 30, 0.9) 0%, rgba(30, 25, 20, 0.9) 100%);
     border: 2px solid var(--gold-metallic);
-    border-radius: 20px;
+    border-radius: 16px;
     text-decoration: none;
     color: var(--text-light);
     overflow: hidden;
@@ -382,8 +383,8 @@ body::before {
 }
 
 .card-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: clamp(2.2rem, 6vw, 3rem);
+    margin-bottom: clamp(12px, 3vw, 20px);
     background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -399,13 +400,13 @@ body::before {
 
 .card-content h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 8px;
     color: var(--gold-light);
 }
 
 .card-content p {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     color: rgba(255, 255, 255, 0.7);
     font-weight: 300;
 }
@@ -467,31 +468,50 @@ body::before {
 
 @media (max-width: 768px) {
     .hero-section {
-        padding: 40px 20px;
-    }
-    
-    .hero-avatar {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .golden-ring {
-        width: 190px;
-        height: 190px;
-    }
-    
-    .golden-ring-2 {
-        width: 230px;
-        height: 230px;
+        padding: 30px 15px;
     }
     
     .social-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0 5px;
     }
     
     .golden-glow {
-        width: 400px;
-        height: 400px;
+        width: 350px;
+        height: 350px;
+    }
+    
+    .golden-card {
+        padding: 25px 20px;
+    }
+    
+    .card-icon {
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .landing-container {
+        padding: 40px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-grid {
+        gap: 14px;
+    }
+    
+    .golden-card {
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+    
+    .card-icon {
+        font-size: 2rem;
+    }
+    
+    .hero-section {
+        padding: 25px 10px;
     }
 }
 
