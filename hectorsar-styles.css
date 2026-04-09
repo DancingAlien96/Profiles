@@ -175,11 +175,12 @@ body::before {
 
 .established-text {
     font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
     color: var(--white);
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes fadeIn {
