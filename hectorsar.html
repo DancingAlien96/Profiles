@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hector SAR - Inmobiliaria Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="hectorsar-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Fondo con partículas -->
+    <div class="background-particles"></div>
+    
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <!-- Sección del logo y brand -->
+        <div class="brand-section">
+            <div class="logo-container">
+                <img src="logohector.png" alt="Hector SAR Logo" class="brand-logo">
+            </div>
+            
+            <div class="brand-info">
+                <h1 class="brand-title">Bienestar Inmobiliaria</h1>
+                <p class="brand-slogan">Tu hogar, nuestra pasión</p>
+                <div class="established">
+                    <span class="established-text">Since 2018</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divisor decorativo -->
+        <div class="elegant-divider">
+            <span class="divider-dot"></span>
+            <span class="divider-line"></span>
+            <span class="divider-icon"><i class="fas fa-home"></i></span>
+            <span class="divider-line"></span>
+            <span class="divider-dot"></span>
+        </div>
+
+        <!-- Sección de botones -->
+        <div class="buttons-section">
+            <a href="#lotificaciones" class="action-btn primary-btn">
+                <div class="btn-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <div class="btn-content">
+                    <h3>Lotificaciones</h3>
+                    <p>Ver proyectos disponibles</p>
+                </div>
+                <div class="btn-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+
+            <a href="https://wa.me/50253541465" class="action-btn whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                <div class="btn-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="btn-content">
+                    <h3>WhatsApp</h3>
+                    <p>Contacto directo</p>
+                </div>
+                <div class="btn-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+
+            <a href="#" class="action-btn facebook-btn" target="_blank" rel="noopener noreferrer">
+                <div class="btn-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="btn-content">
+                    <h3>Facebook</h3>
+                    <p>Síguenos en Facebook</p>
+                </div>
+                <div class="btn-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+
+            <a href="#" class="action-btn tiktok-btn" target="_blank" rel="noopener noreferrer">
+                <div class="btn-icon">
+                    <i class="fab fa-tiktok"></i>
+                </div>
+                <div class="btn-content">
+                    <h3>TikTok</h3>
+                    <p>Síguenos en TikTok</p>
+                </div>
+                <div class="btn-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Crear partículas de fondo
+        function createParticles() {
+            const container = document.querySelector('.background-particles');
+            const particleCount = 40;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 8) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Efecto hover en botones
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Inicializar
+        createParticles();
+
+        // Animación de carga
+        window.addEventListener('load', () => {
+            document.querySelector('.main-container').classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
