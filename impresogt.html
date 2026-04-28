@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImpresoGT - Impresión de alta calidad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #0f1726;
+            --surface: rgba(15, 23, 38, 0.86);
+            --surface-strong: rgba(15, 23, 38, 0.98);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #f8fafc;
+            --muted: #cbd5e1;
+            --accent: #22d3ee;
+            --accent-dark: #06b6d4;
+            --highlight: #facc15;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+            background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 22%),
+                        radial-gradient(circle at bottom right, rgba(250, 204, 21, 0.12), transparent 20%),
+                        linear-gradient(180deg, #020617 0%, #0f1726 100%);
+            color: var(--text);
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            position: relative;
+            overflow: visible;
+        }
+        .background-effect {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .background-effect span {
+            position: absolute;
+            display: block;
+            border-radius: 50%;
+            filter: blur(22px);
+            opacity: 0.65;
+            animation: float 24s ease-in-out infinite alternate;
+            will-change: transform, opacity;
+        }
+        .background-effect span:nth-child(1) {
+            width: 260px;
+            height: 260px;
+            background: rgba(34, 211, 238, 0.22);
+            top: 6%;
+            left: 4%;
+            animation-duration: 22s;
+        }
+        .background-effect span:nth-child(2) {
+            width: 220px;
+            height: 220px;
+            background: rgba(250, 204, 21, 0.22);
+            top: 14%;
+            right: 10%;
+            animation-duration: 26s;
+            animation-delay: 2s;
+        }
+        .background-effect span:nth-child(3) {
+            width: 320px;
+            height: 320px;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: 8%;
+            left: 12%;
+            animation-duration: 28s;
+            animation-delay: 1s;
+        }
+        .background-effect span:nth-child(4) {
+            width: 180px;
+            height: 180px;
+            background: rgba(59, 130, 246, 0.18);
+            bottom: 8%;
+            right: 8%;
+            animation-duration: 24s;
+            animation-delay: 2.8s;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.65; }
+            25% { transform: translateY(-16px) translateX(10px) scale(1.02); opacity: 0.72; }
+            50% { transform: translateY(-32px) translateX(-8px) scale(1.05); opacity: 0.65; }
+            75% { transform: translateY(-18px) translateX(8px) scale(1.03); opacity: 0.68; }
+            100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.65; }
+        }
+        .page {
+            width: min(920px, 100%);
+            padding: 32px;
+            border-radius: 28px;
+            background: linear-gradient(180deg, rgba(15, 23, 38, 0.94), rgba(15, 23, 38, 0.82));
+            border: 1px solid var(--border);
+            box-shadow: 0 24px 80px rgba(15, 23, 38, 0.4);
+            backdrop-filter: blur(14px);
+        }
+        .hero {
+            display: grid;
+            gap: 20px;
+            align-items: center;
+            text-align: center;
+        }
+        .hero .brand-logo {
+            width: 132px;
+            height: 132px;
+            object-fit: cover;
+            border-radius: 28px;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            background: rgba(255,255,255,0.04);
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+        .hero p {
+            margin: 0;
+            max-width: 720px;
+            margin-inline: auto;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: 999px;
+            background: rgba(34, 211, 238, 0.12);
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+        .grid {
+            display: grid;
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .card {
+            padding: 26px;
+            border-radius: 24px;
+            background: rgba(15, 23, 38, 0.82);
+            border: 1px solid var(--border);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 18px 40px rgba(0,0,0,0.18);
+        }
+        .card h2 {
+            margin: 0 0 16px;
+            font-size: clamp(1.4rem, 2vw, 1.9rem);
+            color: var(--text);
+        }
+        .card ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .card ul li {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+        .card ul li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            margin-top: 2px;
+        }
+        .buttons {
+            display: grid;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            min-height: 56px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+            box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+        }
+        .button-icon {
+            font-size: 1.4rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.04);
+        }
+        .whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+        }
+        .instagram {
+            background: linear-gradient(135deg, #f58529, #dd2a7b, #515bd4);
+            color: white;
+        }
+        .contact-info {
+            display: grid;
+            gap: 12px;
+            margin-top: 8px;
+            color: var(--muted);
+        }
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            word-break: break-word;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 36px;
+            text-align: center;
+            color: rgba(203,213,225,0.72);
+            font-size: 0.95rem;
+        }
+        @media (min-width: 720px) {
+            .grid-2 {
+                grid-template-columns: 1.16fr 0.9fr;
+                align-items: start;
+            }
+        }
+        @media (max-width: 620px) {
+            .page {
+                padding: 24px;
+            }
+            .hero h1 {
+                font-size: clamp(2rem, 7vw, 3rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-effect">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <main class="page">
+        <section class="hero">
+            <span class="badge">Impresión profesional</span>
+            <img src="impresogt.jpg" alt="Logo ImpresoGT" class="brand-logo">
+            <h1>ImpresoGT</h1>
+            <p>Impresiones premium para tu marca con acabados profesionales, creatividad visual y entrega rápida. Visita nuestro Instagram para ver cómo elevamos cada proyecto y encendemos tu comunicación.</p>
+        </section>
+
+        <div class="grid grid-2">
+            <article class="card">
+                <h2>Servicios destacados</h2>
+                <ul>
+                    <li>Tarjetas de presentación con NFC y QR para compartir tu contacto al instante.</li>
+                    <li>Menús digitales NFC y QR para restaurantes modernos sin contacto.</li>
+                    <li>Cajas personalizadas y packaging con tu logo y estilo de marca.</li>
+                    <li>Banners publicitarios, roll-ups y viniles para eventos y tiendas.</li>
+                    <li>Diseño gráfico, retoque y asesoría para que tu impresión llegue con impacto.</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h2>Contacto directo</h2>
+                <div class="buttons">
+                    <a class="button whatsapp" href="https://wa.me/50233074483" target="_blank" rel="noopener noreferrer">
+                        <span class="button-icon"><i class="fab fa-whatsapp"></i></span>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a class="button instagram" href="https://www.instagram.com/impresogt" target="_blank" rel="noopener noreferrer">
+                        <span class="button-icon"><i class="fab fa-instagram"></i></span>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+                <div class="contact-info">
+                    <p>Conoce trabajos recientes, promociones y ejemplos de impresión en nuestro Instagram.</p>
+                    <p>WhatsApp: <a href="https://wa.me/50233074483">+502 3307 4483</a></p>
+                    <p>Instagram: <a href="https://www.instagram.com/impresogt">@impresogt</a></p>
+                </div>
+            </article>
+        </div>
+
+        <p class="footer">Calidad, precisión y entrega confiable en cada impresión. ImpresoGT - Tu marca en el mejor papel.</p>
+    </main>
+</body>
+</html>
