@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulce Cetino · Creadora de Contenido</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dulcecetino-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Fondo decorativo -->
+    <div class="glow-top"></div>
+    <div class="sparkles"></div>
+
+    <!-- Tarjeta principal -->
+    <main class="card">
+        <div class="avatar-wrap">
+            <div class="avatar-ring"></div>
+            <img src="dulcecetino.png" alt="Dulce Cetino">
+        </div>
+
+        <h1 class="name">Dulce <span class="accent">Cetino</span></h1>
+
+        <div class="divider">
+            <span></span>
+            <i class="fas fa-heart"></i>
+            <span></span>
+        </div>
+
+        <p class="role">Creadora de Contenido · Influencer</p>
+
+        <p class="location"><i class="fas fa-location-dot"></i>Chiquimula, Guatemala</p>
+
+        <p class="tagline">
+            Contenido con sabor, estilo y autenticidad. ¡Acompáñame en mis redes
+            y sé parte de la comunidad! ❤️
+        </p>
+
+        <div class="actions">
+            <a href="https://www.instagram.com/dulcsita" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon ig"><i class="fab fa-instagram"></i></span>
+                <span class="btn-text">
+                    <strong>Instagram</strong>
+                    <span>@dulcsita</span>
+                </span>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@dm_chuleriasgt" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon tk"><i class="fab fa-tiktok"></i></span>
+                <span class="btn-text">
+                    <strong>TikTok</strong>
+                    <span>@dm_chuleriasgt</span>
+                </span>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+        </div>
+
+        <p class="footer">CONTENIDO · ESTILO · COMUNIDAD</p>
+    </main>
+
+    <script>
+        // Generar destellos / corazones flotantes
+        (function createSparkles() {
+            const container = document.querySelector('.sparkles');
+            const icons = ['fa-heart', 'fa-star', 'fa-sparkles'];
+            const count = 28;
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('i');
+                const icon = icons[i % 2 === 0 ? 0 : 1];
+                el.className = 'fas ' + icon;
+                el.style.left = Math.random() * 100 + '%';
+                el.style.top = (100 + Math.random() * 20) + '%';
+                el.style.fontSize = (8 + Math.random() * 12) + 'px';
+                el.style.animationDuration = (10 + Math.random() * 14) + 's';
+                el.style.animationDelay = (Math.random() * 12) + 's';
+                container.appendChild(el);
+            }
+        })();
+
+        // Animación de entrada
+        window.addEventListener('load', () => {
+            document.querySelector('.card').classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
