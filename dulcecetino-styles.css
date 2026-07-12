@@ -218,6 +218,135 @@ body {
     margin: 0 auto 30px;
 }
 
+/* ============ Marcas ============ */
+.brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--cream);
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 180, 190, 0.10);
+    border: 1px solid rgba(255, 180, 190, 0.3);
+}
+
+.brand-badge strong { font-weight: 600; }
+.brand-badge i { color: var(--champagne); font-size: 0.8rem; }
+
+/* ============ Estadísticas ============ */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 18px 8px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 180, 190, 0.22);
+}
+
+.stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--blush), var(--champagne));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* ============ Bloques con título ============ */
+.block { margin-bottom: 30px; }
+
+.block-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 16px;
+}
+
+/* ============ Servicios ============ */
+.services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 10px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 180, 190, 0.22);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-3px);
+    border-color: var(--blush);
+}
+
+.service i {
+    font-size: 1.5rem;
+    color: var(--rose);
+}
+
+.service span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--cream);
+    text-align: center;
+}
+
+/* ============ Chips (por qué) ============ */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px;
+}
+
+.chip {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--cream);
+    padding: 9px 15px;
+    border-radius: 999px;
+    background: rgba(255, 180, 190, 0.08);
+    border: 1px solid rgba(255, 180, 190, 0.25);
+}
+
 /* ============ Botones ============ */
 .actions {
     display: flex;
@@ -277,6 +406,16 @@ body {
 .btn-icon.tk {
     background: linear-gradient(135deg, #25f4ee 0%, #000 50%, #fe2c55 100%);
     box-shadow: 0 6px 18px rgba(254, 44, 85, 0.4);
+}
+
+.btn-icon.wa {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+.btn-icon.mail {
+    background: linear-gradient(135deg, var(--rose), var(--red-500));
+    box-shadow: 0 6px 18px rgba(225, 29, 58, 0.35);
 }
 
 .btn-text { text-align: left; line-height: 1.25; }
