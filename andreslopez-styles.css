@@ -1,0 +1,346 @@
+/* ============================================
+   Dr. Andrés López — Tarjeta Digital (ficticia)
+   Médico General · Tema: Azul marino + Blanco
+   ============================================ */
+
+:root {
+    --navy-900: #0f1d3d;
+    --navy-800: #16264a;
+    --navy-700: #1e3160;
+    --navy-500: #2c4a8a;
+    --navy-300: #6b82b4;
+    --accent: #3f6fd1;
+    --bg-page: #eef2f9;
+    --bg-card: #ffffff;
+    --line: #e2e8f4;
+    --text-dark: #1a2340;
+    --text-muted: #6a7796;
+    --text-soft: #8b98b4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body { min-height: 100%; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background:
+        radial-gradient(900px 600px at 12% 8%, rgba(63, 111, 209, 0.08), transparent 60%),
+        radial-gradient(800px 600px at 88% 92%, rgba(22, 38, 74, 0.06), transparent 55%),
+        var(--bg-page);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Patrón de cruces médicas sutil */
+.medical-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image:
+        radial-gradient(circle, rgba(63, 111, 209, 0.06) 1.5px, transparent 1.6px);
+    background-size: 34px 34px;
+    mask-image: radial-gradient(circle at 50% 40%, black 20%, transparent 72%);
+    -webkit-mask-image: radial-gradient(circle at 50% 40%, black 20%, transparent 72%);
+}
+
+/* ============ Tarjeta principal ============ */
+.card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 440px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    margin: auto;
+    text-align: center;
+    box-shadow:
+        0 24px 60px rgba(15, 29, 61, 0.14),
+        0 2px 6px rgba(15, 29, 61, 0.05);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.card.loaded { opacity: 1; transform: translateY(0); }
+
+/* Encabezado azul */
+.card-header {
+    background: linear-gradient(160deg, var(--navy-800), var(--navy-700));
+    padding: 42px 36px 60px;
+    position: relative;
+    color: #fff;
+}
+
+.card-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: var(--bg-card);
+    border-radius: 40px 40px 0 0;
+}
+
+.avatar {
+    width: 104px;
+    height: 104px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #fff, #dbe4f6);
+    color: var(--navy-800);
+    font-size: 2.6rem;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25), inset 0 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+.name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.15;
+}
+
+.title-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.title-line span {
+    height: 1px;
+    width: 34px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.role {
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c8d5f0;
+}
+
+/* ============ Cuerpo ============ */
+.card-body {
+    padding: 10px 32px 36px;
+    position: relative;
+    z-index: 1;
+}
+
+.bio {
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 28px;
+}
+
+/* Datos de contacto (lista) */
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 6px;
+    border-bottom: 1px solid var(--line);
+}
+
+.info-row:last-child { border-bottom: none; }
+
+.info-ic {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    color: #fff;
+    background: linear-gradient(160deg, var(--navy-700), var(--navy-500));
+}
+
+.info-txt { line-height: 1.3; }
+.info-txt small {
+    display: block;
+    font-size: 0.68rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 2px;
+}
+.info-txt strong { font-size: 0.92rem; font-weight: 500; color: var(--text-dark); }
+
+/* ============ Bloques ============ */
+.block { margin-bottom: 30px; }
+
+.block-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy-800);
+    margin-bottom: 16px;
+}
+
+/* Servicios */
+.services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 10px;
+    border-radius: 14px;
+    background: #f5f8fd;
+    border: 1px solid var(--line);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(15, 29, 61, 0.1);
+}
+
+.service i { font-size: 1.4rem; color: var(--accent); }
+.service span {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+/* Horario */
+.hours {
+    background: #f5f8fd;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 20px;
+    text-align: left;
+}
+
+.hours-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    padding: 6px 0;
+    color: var(--text-muted);
+}
+
+.hours-row strong { color: var(--text-dark); font-weight: 500; }
+
+/* ============ Botones ============ */
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text-dark);
+    background: #fff;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 26px rgba(15, 29, 61, 0.12);
+}
+
+.btn-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.btn-icon.wa { background: linear-gradient(135deg, #25d366, #128c7e); }
+.btn-icon.mail { background: linear-gradient(135deg, var(--accent), var(--navy-700)); }
+.btn-icon.map { background: linear-gradient(135deg, #ea4335, #b31412); }
+
+.btn-text { text-align: left; line-height: 1.25; }
+.btn-text strong { display: block; font-size: 0.98rem; font-weight: 600; }
+.btn-text span { font-size: 0.76rem; color: var(--text-muted); }
+
+.btn-arrow {
+    margin-left: auto;
+    color: var(--navy-300);
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover .btn-arrow { transform: translateX(4px); }
+
+/* ============ Footer ============ */
+.footer {
+    margin-top: 4px;
+    padding: 20px 32px 26px;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    color: var(--text-soft);
+    border-top: 1px solid var(--line);
+}
+
+.footer .disclaimer {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.64rem;
+    letter-spacing: 0.5px;
+    color: #aab4cc;
+    text-transform: none;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 420px) {
+    .card-header { padding: 36px 24px 56px; }
+    .card-body { padding: 10px 22px 30px; }
+    .name { font-size: 1.6rem; }
+}

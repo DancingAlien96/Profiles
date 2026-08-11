@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Andrés López · Médico General</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="andreslopez-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="medical-bg"></div>
+
+    <main class="card">
+        <!-- Encabezado -->
+        <div class="card-header">
+            <div class="avatar"><i class="fas fa-user-doctor"></i></div>
+            <h1 class="name">Dr. Andrés López</h1>
+            <div class="title-line">
+                <span></span>
+                <p class="role">Médico General</p>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Cuerpo -->
+        <div class="card-body">
+            <p class="bio">
+                Médico general comprometido con una atención cercana, humana y
+                preventiva. Brindo consultas integrales para toda la familia,
+                enfocándome en el bienestar y la salud a largo plazo de cada paciente.
+            </p>
+
+            <!-- Datos de contacto -->
+            <div class="info-list">
+                <div class="info-row">
+                    <span class="info-ic"><i class="fas fa-phone"></i></span>
+                    <span class="info-txt"><small>Teléfono</small><strong>+502 1234 5678</strong></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-ic"><i class="fas fa-envelope"></i></span>
+                    <span class="info-txt"><small>Correo</small><strong>dr.andreslopez@gmail.com</strong></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-ic"><i class="fas fa-location-dot"></i></span>
+                    <span class="info-txt"><small>Ubicación</small><strong>Ciudad de Guatemala, Guatemala</strong></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-ic"><i class="fas fa-stethoscope"></i></span>
+                    <span class="info-txt"><small>Colegiado</small><strong>No. 12345</strong></span>
+                </div>
+            </div>
+
+            <!-- Servicios -->
+            <div class="block">
+                <h2 class="block-title">Servicios</h2>
+                <div class="services">
+                    <div class="service"><i class="fas fa-notes-medical"></i><span>Consulta general</span></div>
+                    <div class="service"><i class="fas fa-heart-pulse"></i><span>Chequeos preventivos</span></div>
+                    <div class="service"><i class="fas fa-prescription-bottle-medical"></i><span>Control de enfermedades</span></div>
+                    <div class="service"><i class="fas fa-file-medical"></i><span>Certificados médicos</span></div>
+                </div>
+            </div>
+
+            <!-- Horario -->
+            <div class="block">
+                <h2 class="block-title">Horario de Atención</h2>
+                <div class="hours">
+                    <div class="hours-row"><strong>Lunes a Viernes</strong><span>8:00 AM – 6:00 PM</span></div>
+                    <div class="hours-row"><strong>Sábado</strong><span>8:00 AM – 12:00 PM</span></div>
+                    <div class="hours-row"><strong>Domingo</strong><span>Cerrado</span></div>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="block">
+                <h2 class="block-title">Agenda tu cita</h2>
+                <div class="actions">
+                    <a href="https://wa.me/50212345678" class="btn" target="_blank" rel="noopener noreferrer">
+                        <span class="btn-icon wa"><i class="fab fa-whatsapp"></i></span>
+                        <span class="btn-text">
+                            <strong>WhatsApp</strong>
+                            <span>+502 1234 5678</span>
+                        </span>
+                        <i class="fas fa-arrow-right btn-arrow"></i>
+                    </a>
+
+                    <a href="mailto:dr.andreslopez@gmail.com" class="btn">
+                        <span class="btn-icon mail"><i class="fas fa-envelope"></i></span>
+                        <span class="btn-text">
+                            <strong>Correo</strong>
+                            <span>dr.andreslopez@gmail.com</span>
+                        </span>
+                        <i class="fas fa-arrow-right btn-arrow"></i>
+                    </a>
+
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ciudad+de+Guatemala" class="btn" target="_blank" rel="noopener noreferrer">
+                        <span class="btn-icon map"><i class="fas fa-map-location-dot"></i></span>
+                        <span class="btn-text">
+                            <strong>Ubicación</strong>
+                            <span>Ciudad de Guatemala</span>
+                        </span>
+                        <i class="fas fa-arrow-right btn-arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer">
+            SALUD · CONFIANZA · BIENESTAR
+            <span class="disclaimer">Perfil de demostración con datos ficticios.</span>
+        </p>
+    </main>
+
+    <script>
+        window.addEventListener('load', () => {
+            document.querySelector('.card').classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
