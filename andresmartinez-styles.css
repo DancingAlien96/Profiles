@@ -1,0 +1,308 @@
+/* ============================================
+   Lic. Andrés Martínez — Tarjeta Digital
+   Abogado · Tema: Dorado + Marfil (elegante)
+   ============================================ */
+
+:root {
+    --gold-deep: #9c7a1e;
+    --gold: #c9a227;
+    --gold-bright: #e6c65c;
+    --gold-soft: #f2e4bd;
+    --ivory: #fbf9f4;
+    --cream: #f5efe2;
+    --card: #ffffff;
+    --line: #ece4d1;
+    --ink: #2a251d;
+    --muted: #857c6b;
+    --soft: #a89f8c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body { min-height: 100%; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(900px 620px at 12% 8%, rgba(201, 162, 39, 0.10), transparent 60%),
+        radial-gradient(820px 600px at 88% 92%, rgba(156, 122, 30, 0.08), transparent 55%),
+        var(--ivory);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Textura sutil */
+.pattern-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: radial-gradient(circle, rgba(201, 162, 39, 0.05) 1.4px, transparent 1.5px);
+    background-size: 30px 30px;
+    mask-image: radial-gradient(circle at 50% 40%, black 15%, transparent 72%);
+    -webkit-mask-image: radial-gradient(circle at 50% 40%, black 15%, transparent 72%);
+}
+
+/* ============ Tarjeta ============ */
+.card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 440px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 24px 60px rgba(74, 58, 12, 0.14), 0 2px 6px rgba(74, 58, 12, 0.05);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.card.loaded { opacity: 1; transform: translateY(0); }
+
+/* Marco dorado interior */
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid var(--gold-soft);
+    border-radius: 14px;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* ============ Encabezado ============ */
+.card-header {
+    padding: 44px 36px 30px;
+    background: linear-gradient(180deg, var(--cream), var(--card));
+    position: relative;
+}
+
+.emblem {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 18px;
+}
+
+.emblem svg { width: 100%; height: 100%; display: block; }
+
+.name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+}
+
+.title-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 12px 0 8px;
+}
+
+.title-line span {
+    height: 1px;
+    width: 40px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+}
+.title-line span:last-child {
+    background: linear-gradient(90deg, var(--gold), transparent);
+}
+.title-line i { color: var(--gold); font-size: 0.7rem; }
+
+.role {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 12px;
+}
+
+.practice {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* ============ Cuerpo ============ */
+.card-body { padding: 8px 32px 34px; position: relative; z-index: 1; }
+
+.bio {
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 18px 0 28px;
+}
+
+/* Info list */
+.info-list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--line);
+}
+.info-row:last-child { border-bottom: none; }
+
+.info-ic {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: #fff;
+    background: linear-gradient(160deg, var(--gold-bright), var(--gold-deep));
+}
+
+.info-txt { line-height: 1.3; }
+.info-txt small {
+    display: block;
+    font-size: 0.66rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: 2px;
+}
+.info-txt strong { font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+
+/* ============ Bloques ============ */
+.block { margin-bottom: 30px; }
+
+.block-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--gold-deep);
+    margin-bottom: 16px;
+}
+
+/* Áreas de práctica */
+.areas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 10px;
+    border-radius: 12px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.area:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(74, 58, 12, 0.12); }
+.area i { font-size: 1.35rem; color: var(--gold); }
+.area span { font-size: 0.8rem; font-weight: 500; color: var(--ink); text-align: center; }
+
+/* ============ Botones ============ */
+.actions { display: flex; flex-direction: column; gap: 12px; }
+
+.btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.btn:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 26px rgba(74, 58, 12, 0.12);
+}
+
+.btn-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    font-size: 1.25rem;
+    color: #fff;
+}
+.btn-icon.wa { background: linear-gradient(135deg, #25d366, #128c7e); }
+.btn-icon.mail { background: linear-gradient(135deg, var(--gold-bright), var(--gold-deep)); }
+.btn-icon.web { background: linear-gradient(135deg, #4a6fa5, #2c4a75); }
+.btn-icon.map { background: linear-gradient(135deg, #ea4335, #b31412); }
+
+.btn-text { text-align: left; line-height: 1.25; }
+.btn-text strong { display: block; font-size: 0.96rem; font-weight: 600; }
+.btn-text span { font-size: 0.75rem; color: var(--muted); }
+
+.btn-arrow {
+    margin-left: auto;
+    color: var(--gold);
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+.btn:hover .btn-arrow { transform: translateX(4px); }
+
+/* ============ Footer ============ */
+.footer {
+    padding: 20px 32px 26px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--soft);
+    border-top: 1px solid var(--line);
+    text-transform: uppercase;
+}
+.footer .disclaimer {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.64rem;
+    letter-spacing: 0.5px;
+    color: #b8ae98;
+    text-transform: none;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 420px) {
+    .card-header { padding: 38px 24px 26px; }
+    .card-body { padding: 8px 22px 30px; }
+    .name { font-size: 1.42rem; }
+    .role { letter-spacing: 4px; }
+}
