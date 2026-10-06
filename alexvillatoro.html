@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ing. Alex Villatoro · Ingeniero Agrónomo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="alexvillatoro-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Fondo: surcos + hojas flotantes -->
+    <div class="furrows"></div>
+    <div class="leaves"></div>
+
+    <main class="card">
+        <!-- Encabezado tipo campo -->
+        <div class="field-banner">
+            <span class="ion">Ca<sup>2+</sup></span>
+            <span class="ion">Mg<sup>2+</sup></span>
+            <span class="ion">K<sup>+</sup></span>
+            <span class="ion">N</span>
+        </div>
+
+        <div class="avatar-wrap">
+            <div class="avatar-ring"></div>
+            <img src="alexvillatoro.jpg" alt="Alex Villatoro">
+            <span class="sprout"><i class="fas fa-seedling"></i></span>
+        </div>
+
+        <h1 class="name">Alex <span class="leaf">Villatoro</span></h1>
+
+        <div class="divider">
+            <span></span>
+            <i class="fas fa-leaf"></i>
+            <span></span>
+        </div>
+
+        <p class="role">Ingeniero Agrónomo</p>
+        <p class="company"><i class="fas fa-flask"></i> Technical &amp; Business Development · <strong>Kimitec</strong></p>
+
+        <div class="tags">
+            <span><i class="fas fa-seedling"></i> Bioestimulantes</span>
+            <span><i class="fas fa-chart-line"></i> Marketing Estratégico</span>
+            <span><i class="fas fa-handshake"></i> Desarrollo de Negocios</span>
+        </div>
+
+        <!-- Bio (Acerca de, LinkedIn) -->
+        <div class="bio">
+            <h2 class="block-title"><i class="fas fa-quote-left"></i> Acerca de mí</h2>
+            <p>
+                La agricultura en Centroamérica está avanzando y me da gusto saber que
+                estamos en el cambio y el proceso de lo químico a lo natural y sobre
+                todo impulsamos el uso de microorganismos beneficiosos para producir
+                de manera más natural.
+            </p>
+        </div>
+
+        <div class="meta">
+            <span><i class="fas fa-location-dot"></i> Chiquimula, Guatemala</span>
+            <span><i class="fas fa-graduation-cap"></i> Universidad Rafael Landívar</span>
+        </div>
+
+        <div class="actions">
+            <a href="https://wa.me/50251269540" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon"><i class="fab fa-whatsapp"></i></span>
+                <span class="btn-text">
+                    <strong>WhatsApp</strong>
+                    <span>+502 5126 9540</span>
+                </span>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/alexander-villatoro-4587ab284" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon"><i class="fab fa-linkedin-in"></i></span>
+                <span class="btn-text">
+                    <strong>LinkedIn</strong>
+                    <span>Perfil profesional</span>
+                </span>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+
+            <a href="mailto:alex.villatoro@kimitec.com" class="btn">
+                <span class="btn-icon"><i class="fas fa-envelope"></i></span>
+                <span class="btn-text">
+                    <strong>Correo</strong>
+                    <span>alex.villatoro@kimitec.com</span>
+                </span>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+        </div>
+
+        <p class="footer">CAMPO · CIENCIA · NATURALEZA</p>
+    </main>
+
+    <script>
+        // Generar hojas flotantes
+        (function createLeaves() {
+            const container = document.querySelector('.leaves');
+            const icons = ['fa-leaf', 'fa-seedling', 'fa-leaf'];
+            const count = 22;
+            for (let i = 0; i < count; i++) {
+                const leaf = document.createElement('i');
+                leaf.className = 'fas ' + icons[i % icons.length] + ' falling-leaf';
+                leaf.style.left = Math.random() * 100 + '%';
+                leaf.style.fontSize = (10 + Math.random() * 14) + 'px';
+                leaf.style.animationDuration = (12 + Math.random() * 14) + 's';
+                leaf.style.animationDelay = (Math.random() * 14) + 's';
+                leaf.style.opacity = 0.25 + Math.random() * 0.35;
+                container.appendChild(leaf);
+            }
+        })();
+
+        // Animación de entrada
+        window.addEventListener('load', () => {
+            document.querySelector('.card').classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
