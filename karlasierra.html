@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karla Sierra García · Swisscontact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="karlasierra-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Fondo: curvas azules como su tarjeta -->
+    <div class="swoosh swoosh-top"></div>
+    <div class="swoosh swoosh-bottom"></div>
+    <div class="icons-bg"></div>
+
+    <main class="card">
+        <div class="card-header">
+            <div class="avatar-wrap">
+                <div class="avatar-ring"></div>
+                <img src="karlasierra.jpg" alt="Karla Sierra García">
+                <span class="badge"><i class="fas fa-award"></i></span>
+            </div>
+
+            <h1 class="name">Karla Sierra García</h1>
+            <p class="role">
+                Coordinadora del proyecto de Formación y Certificación
+                para el Empleo Digno
+            </p>
+
+            <div class="org">
+                <span class="org-mark"></span>
+                <span><strong>swiss</strong>contact</span>
+            </div>
+            <p class="org-tag">creamos oportunidades</p>
+        </div>
+
+        <div class="card-body">
+            <!-- Pilares del proyecto -->
+            <div class="pillars">
+                <div class="pillar">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <span>Formación</span>
+                </div>
+                <div class="pillar">
+                    <i class="fas fa-certificate"></i>
+                    <span>Certificación</span>
+                </div>
+                <div class="pillar">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Empleo Digno</span>
+                </div>
+            </div>
+
+            <p class="bio">
+                Máster en Gestión de Proyectos y Licenciada Cum Laude en Psicología
+                Industrial/Organizacional. En la cooperación internacional me especializo
+                en el desarrollo de competencias técnicas y blandas en población en
+                condición de vulnerabilidad, coaching para la empleabilidad y programas
+                de inserción laboral, construyendo alianzas estratégicas que fortalecen
+                proyectos de impacto en Guatemala. ¡Conectemos y construyamos juntos
+                nuevas oportunidades!
+            </p>
+
+            <div class="meta">
+                <span><i class="fas fa-location-dot"></i> Guatemala</span>
+                <span><i class="fas fa-graduation-cap"></i> EUDE Business School</span>
+                <span><i class="fas fa-building-columns"></i> Universidad Rafael Landívar</span>
+            </div>
+
+            <div class="actions">
+                <a href="https://wa.me/50230700893" class="btn" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-icon wa"><i class="fab fa-whatsapp"></i></span>
+                    <span class="btn-text">
+                        <strong>WhatsApp</strong>
+                        <span>+502 3070 0893</span>
+                    </span>
+                    <i class="fas fa-arrow-right btn-arrow"></i>
+                </a>
+
+                <a href="tel:+50277252582" class="btn">
+                    <span class="btn-icon"><i class="fas fa-phone"></i></span>
+                    <span class="btn-text">
+                        <strong>Oficina</strong>
+                        <span>+502 7725 2582</span>
+                    </span>
+                    <i class="fas fa-arrow-right btn-arrow"></i>
+                </a>
+
+                <a href="mailto:karla.sierra@swisscontact.org" class="btn">
+                    <span class="btn-icon"><i class="fas fa-envelope"></i></span>
+                    <span class="btn-text">
+                        <strong>Correo</strong>
+                        <span>karla.sierra@swisscontact.org</span>
+                    </span>
+                    <i class="fas fa-arrow-right btn-arrow"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/karlasierra" class="btn" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-icon light"><i class="fab fa-linkedin-in"></i></span>
+                    <span class="btn-text">
+                        <strong>LinkedIn</strong>
+                        <span>Perfil profesional</span>
+                    </span>
+                    <i class="fas fa-arrow-right btn-arrow"></i>
+                </a>
+            </div>
+
+            <button type="button" class="save-contact" id="saveContact">
+                <i class="fas fa-mobile-screen"></i> Guardar mi contacto
+            </button>
+        </div>
+
+        <p class="footer">FORMACIÓN · CERTIFICACIÓN · EMPLEO DIGNO</p>
+    </main>
+
+    <script>
+        // Iconos de formación flotando en el fondo
+        (function createIcons() {
+            const container = document.querySelector('.icons-bg');
+            const icons = ['fa-graduation-cap', 'fa-certificate', 'fa-briefcase', 'fa-book-open', 'fa-handshake', 'fa-user-tie'];
+            const count = 18;
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('i');
+                el.className = 'fas ' + icons[i % icons.length] + ' float-icon';
+                el.style.left = Math.random() * 100 + '%';
+                el.style.fontSize = (12 + Math.random() * 14) + 'px';
+                el.style.animationDuration = (16 + Math.random() * 14) + 's';
+                el.style.animationDelay = (Math.random() * 16) + 's';
+                container.appendChild(el);
+            }
+        })();
+
+        // Descargar vCard
+        document.getElementById('saveContact').addEventListener('click', () => {
+            const vcard = [
+                'BEGIN:VCARD',
+                'VERSION:3.0',
+                'N:Sierra García;Karla;;;',
+                'FN:Karla Sierra García',
+                'ORG:Swisscontact',
+                'TITLE:Coordinadora del proyecto de Formación y Certificación para el Empleo Digno',
+                'TEL;TYPE=CELL:+50230700893',
+                'TEL;TYPE=WORK:+50277252582',
+                'EMAIL;TYPE=WORK:karla.sierra@swisscontact.org',
+                'URL:https://www.linkedin.com/in/karlasierra',
+                'END:VCARD'
+            ].join('\r\n');
+            const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'Karla-Sierra-Garcia.vcf';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        });
+
+        // Animación de entrada
+        window.addEventListener('load', () => {
+            document.querySelector('.card').classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
