@@ -20,10 +20,12 @@
         <!-- Encabezado tipo macaron -->
         <div class="card-header">
             <div class="paw-trail">
-                <i class="fas fa-paw"></i>
-                <i class="fas fa-paw"></i>
-                <i class="fas fa-paw"></i>
-                <i class="fas fa-paw"></i>
+                <i class="fas fa-dog"></i>
+                <i class="fas fa-cat"></i>
+                <i class="fas fa-horse"></i>
+                <i class="fas fa-dove"></i>
+                <i class="fas fa-fish"></i>
+                <i class="fas fa-frog"></i>
             </div>
 
             <div class="avatar-wrap">
@@ -40,9 +42,20 @@
             <p class="role"><i class="fas fa-stethoscope"></i> Médica Veterinaria</p>
 
             <p class="bio">
-                Cuido de tus mascotas con amor, paciencia y conocimiento. Porque ellos
-                también son familia y merecen la mejor atención en cada etapa de su vida.
+                Cuido de todos los animales con amor, paciencia y conocimiento: desde
+                perros y gatos hasta aves, animales de granja y exóticos. Porque todos
+                merecen la mejor atención en cada etapa de su vida.
             </p>
+
+            <!-- Especies -->
+            <div class="species">
+                <span><i class="fas fa-dog"></i> Perros</span>
+                <span><i class="fas fa-cat"></i> Gatos</span>
+                <span><i class="fas fa-dove"></i> Aves</span>
+                <span><i class="fas fa-fish"></i> Peces</span>
+                <span><i class="fas fa-horse"></i> Granja</span>
+                <span><i class="fas fa-frog"></i> Exóticos</span>
+            </div>
 
             <!-- Servicios -->
             <div class="services">
@@ -59,7 +72,7 @@
                     <span>Nutrición</span>
                 </div>
                 <div class="service">
-                    <span class="service-ic"><i class="fas fa-cat"></i></span>
+                    <span class="service-ic"><i class="fas fa-heart-pulse"></i></span>
                     <span>Prevención</span>
                 </div>
             </div>
@@ -71,7 +84,7 @@
                         <strong>Agenda tu cita</strong>
                         <span>+502 1234 5678</span>
                     </span>
-                    <i class="fas fa-paw btn-arrow"></i>
+                    <i class="fas fa-dog btn-arrow"></i>
                 </a>
 
                 <a href="mailto:Yazminzoo@hotmail.com" class="btn">
@@ -80,7 +93,7 @@
                         <strong>Correo</strong>
                         <span>Yazminzoo@hotmail.com</span>
                     </span>
-                    <i class="fas fa-paw btn-arrow"></i>
+                    <i class="fas fa-cat btn-arrow"></i>
                 </a>
 
                 <a href="https://www.instagram.com/" class="btn" target="_blank" rel="noopener noreferrer">
@@ -89,7 +102,7 @@
                         <strong>Instagram</strong>
                         <span>@yazminzoo.vet</span>
                     </span>
-                    <i class="fas fa-paw btn-arrow"></i>
+                    <i class="fas fa-dove btn-arrow"></i>
                 </a>
 
                 <a href="https://www.facebook.com/" class="btn" target="_blank" rel="noopener noreferrer">
@@ -98,7 +111,7 @@
                         <strong>Facebook</strong>
                         <span>Yazmín Monroy Veterinaria</span>
                     </span>
-                    <i class="fas fa-paw btn-arrow"></i>
+                    <i class="fas fa-horse btn-arrow"></i>
                 </a>
 
                 <a href="https://www.google.com/maps/search/?api=1&query=Ciudad+de+Guatemala" class="btn" target="_blank" rel="noopener noreferrer">
@@ -107,13 +120,13 @@
                         <strong>Ubicación</strong>
                         <span>Ciudad de Guatemala</span>
                     </span>
-                    <i class="fas fa-paw btn-arrow"></i>
+                    <i class="fas fa-fish btn-arrow"></i>
                 </a>
             </div>
         </div>
 
         <p class="footer">
-            <i class="fas fa-paw"></i> AMOR · SALUD · BIENESTAR ANIMAL <i class="fas fa-paw"></i>
+            <i class="fas fa-dog"></i> AMOR · SALUD · BIENESTAR ANIMAL <i class="fas fa-cat"></i>
         </p>
     </main>
 
@@ -121,9 +134,9 @@
         // Huellitas flotantes en el fondo
         (function createPaws() {
             const container = document.querySelector('.paws');
-            const icons = ['fa-paw', 'fa-paw', 'fa-bone', 'fa-heart', 'fa-paw'];
+            const icons = ['fa-paw', 'fa-dog', 'fa-cat', 'fa-horse', 'fa-dove', 'fa-fish', 'fa-frog', 'fa-cow', 'fa-kiwi-bird', 'fa-otter', 'fa-hippo', 'fa-feather', 'fa-bone', 'fa-heart'];
             const colors = ['#d4756e', '#efc3c1', '#f2d38f', '#b9a0b4'];
-            const count = 22;
+            const count = 28;
             for (let i = 0; i < count; i++) {
                 const el = document.createElement('i');
                 el.className = 'fas ' + icons[i % icons.length] + ' float-paw';
