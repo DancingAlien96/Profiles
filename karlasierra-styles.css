@@ -115,7 +115,7 @@ body {
 /* ============ Encabezado ============ */
 .card-header {
     position: relative;
-    padding: 40px 28px 28px;
+    padding: 40px 28px 62px;
     background:
         radial-gradient(500px 220px at 100% 0%, rgba(42, 163, 224, 0.35), transparent 60%),
         linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 55%, var(--blue) 100%);
@@ -235,7 +235,7 @@ body {
     margin-top: 6px;
     font-size: 0.68rem;
     letter-spacing: 3px;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 /* ============ Cuerpo ============ */
@@ -407,7 +407,7 @@ body {
 
 /* ============ Responsive ============ */
 @media (max-width: 420px) {
-    .card-header { padding: 34px 20px 24px; }
+    .card-header { padding: 34px 20px 56px; }
     .card-body { padding: 30px 18px 6px; }
     .name { font-size: 1.65rem; }
     .avatar-wrap { width: 124px; height: 124px; }
