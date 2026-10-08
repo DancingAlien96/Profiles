@@ -1,0 +1,394 @@
+/* ============================================
+   Yazmín Monroy — Tarjeta Digital
+   Tema: Paleta Macaron (crema, mantequilla, rosa, coral, cacao) · Veterinaria
+   ============================================ */
+
+:root {
+    --cream: #f1e7df;
+    --butter: #f2d38f;
+    --blush: #efc3c1;
+    --pink-bg: #ecc9d0;
+    --coral: #d4756e;
+    --coral-deep: #bf5f58;
+    --cocoa: #4a3b3d;
+    --lilac: #b9a0b4;
+    --white: #fffaf7;
+    --text: #4a3b3d;
+    --muted: #8a7577;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(700px 500px at 0% 0%, rgba(242, 211, 143, 0.45), transparent 60%),
+        radial-gradient(700px 500px at 100% 100%, rgba(212, 117, 110, 0.25), transparent 60%),
+        var(--pink-bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 16px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* ============ Fondo ============ */
+.blob {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.blob-1 {
+    width: 320px;
+    height: 320px;
+    top: -110px;
+    right: -90px;
+    background: var(--cream);
+    opacity: 0.7;
+}
+
+.blob-2 {
+    width: 260px;
+    height: 260px;
+    bottom: -90px;
+    left: -80px;
+    background: var(--butter);
+    opacity: 0.55;
+}
+
+.paws {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.float-paw {
+    position: absolute;
+    bottom: -40px;
+    opacity: 0.45;
+    animation: rise linear infinite;
+}
+
+@keyframes rise {
+    0%   { transform: translateY(0) rotate(-15deg); }
+    50%  { transform: translateY(-60vh) translateX(20px) rotate(10deg); }
+    100% { transform: translateY(-120vh) rotate(-15deg); }
+}
+
+/* ============ Tarjeta ============ */
+.card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 430px;
+    background: var(--white);
+    border-radius: 32px;
+    margin: auto;
+    text-align: center;
+    overflow: hidden;
+    box-shadow:
+        0 30px 60px rgba(74, 59, 61, 0.18),
+        0 2px 6px rgba(74, 59, 61, 0.06);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.card.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Encabezado en franjas tipo macaron */
+.card-header {
+    position: relative;
+    height: 150px;
+    background: linear-gradient(90deg,
+        var(--lilac) 0 25%,
+        var(--blush) 25% 50%,
+        var(--butter) 50% 75%,
+        var(--cream) 75% 100%);
+}
+
+.card-header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 46px;
+    background: var(--white);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+.paw-trail {
+    position: absolute;
+    top: 18px;
+    left: 22px;
+    display: flex;
+    gap: 10px;
+    transform: rotate(-12deg);
+}
+
+.paw-trail i {
+    color: var(--white);
+    opacity: 0.75;
+    font-size: 0.9rem;
+}
+
+.paw-trail i:nth-child(even) {
+    transform: translateY(8px);
+}
+
+/* ============ Avatar ============ */
+.avatar-wrap {
+    position: absolute;
+    left: 50%;
+    bottom: -62px;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 140px;
+    z-index: 3;
+}
+
+.avatar-ring {
+    position: absolute;
+    inset: -7px;
+    border-radius: 50%;
+    background: conic-gradient(var(--coral), var(--butter), var(--blush), var(--lilac), var(--coral));
+    animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.avatar {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 5px solid var(--white);
+    background: linear-gradient(145deg, var(--blush), var(--coral));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 3.6rem;
+}
+
+.badge {
+    position: absolute;
+    right: 0;
+    bottom: 6px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--butter);
+    color: var(--coral-deep);
+    border: 3px solid var(--white);
+    font-size: 0.95rem;
+    animation: beat 1.6s ease-in-out infinite;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.1); }
+}
+
+/* ============ Cuerpo ============ */
+.card-body {
+    padding: 78px 28px 6px;
+}
+
+.name {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--cocoa);
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+
+.name span {
+    color: var(--coral);
+}
+
+.role {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: var(--cream);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--coral-deep);
+    margin-bottom: 18px;
+}
+
+.role i {
+    margin-right: 6px;
+}
+
+.bio {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 340px;
+    margin: 0 auto 22px;
+}
+
+/* Servicios */
+.services {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--cocoa);
+}
+
+.service-ic {
+    width: 52px;
+    height: 52px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--coral-deep);
+    background: var(--cream);
+    transition: transform 0.3s ease;
+}
+
+.service:nth-child(2) .service-ic { background: #fbeccb; }
+.service:nth-child(3) .service-ic { background: #f8e0df; }
+.service:nth-child(4) .service-ic { background: #ece2ea; }
+
+.service:hover .service-ic {
+    transform: translateY(-4px) rotate(-6deg);
+}
+
+/* ============ Botones ============ */
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--cocoa);
+    background: var(--white);
+    border: 2px solid var(--cream);
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    border-color: var(--blush);
+    background: #fdf3f1;
+}
+
+.btn-icon {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--white);
+}
+
+.btn-icon.coral  { background: var(--coral); }
+.btn-icon.butter { background: var(--butter); color: var(--cocoa); }
+.btn-icon.blush  { background: var(--blush); color: var(--coral-deep); }
+.btn-icon.cocoa  { background: var(--cocoa); }
+
+.btn-text {
+    text-align: left;
+    line-height: 1.3;
+    min-width: 0;
+}
+
+.btn-text strong {
+    display: block;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.02rem;
+    font-weight: 500;
+}
+
+.btn-text span {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--muted);
+    word-break: break-all;
+}
+
+.btn-arrow {
+    margin-left: auto;
+    color: var(--blush);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover .btn-arrow {
+    color: var(--coral);
+    transform: rotate(20deg) scale(1.15);
+}
+
+/* ============ Footer ============ */
+.footer {
+    padding: 24px 20px 28px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+}
+
+.footer i {
+    color: var(--blush);
+    margin: 0 4px;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 420px) {
+    .card-body { padding: 74px 18px 6px; }
+    .name { font-size: 1.9rem; }
+    .services { gap: 4px; }
+    .service-ic { width: 46px; height: 46px; }
+}

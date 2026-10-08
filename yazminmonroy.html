@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Yazmín Monroy · Médica Veterinaria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="yazminmonroy-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Fondo: huellitas flotantes -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="paws"></div>
+
+    <main class="card">
+        <!-- Encabezado tipo macaron -->
+        <div class="card-header">
+            <div class="paw-trail">
+                <i class="fas fa-paw"></i>
+                <i class="fas fa-paw"></i>
+                <i class="fas fa-paw"></i>
+                <i class="fas fa-paw"></i>
+            </div>
+
+            <div class="avatar-wrap">
+                <div class="avatar-ring"></div>
+                <div class="avatar">
+                    <i class="fas fa-dog"></i>
+                </div>
+                <span class="badge"><i class="fas fa-heart"></i></span>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <h1 class="name">Yazmín <span>Monroy</span></h1>
+            <p class="role"><i class="fas fa-stethoscope"></i> Médica Veterinaria</p>
+
+            <p class="bio">
+                Cuido de tus mascotas con amor, paciencia y conocimiento. Porque ellos
+                también son familia y merecen la mejor atención en cada etapa de su vida.
+            </p>
+
+            <!-- Servicios -->
+            <div class="services">
+                <div class="service">
+                    <span class="service-ic"><i class="fas fa-stethoscope"></i></span>
+                    <span>Consultas</span>
+                </div>
+                <div class="service">
+                    <span class="service-ic"><i class="fas fa-syringe"></i></span>
+                    <span>Vacunación</span>
+                </div>
+                <div class="service">
+                    <span class="service-ic"><i class="fas fa-bone"></i></span>
+                    <span>Nutrición</span>
+                </div>
+                <div class="service">
+                    <span class="service-ic"><i class="fas fa-cat"></i></span>
+                    <span>Prevención</span>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a href="https://wa.me/50212345678" class="btn" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-icon coral"><i class="fab fa-whatsapp"></i></span>
+                    <span class="btn-text">
+                        <strong>Agenda tu cita</strong>
+                        <span>+502 1234 5678</span>
+                    </span>
+                    <i class="fas fa-paw btn-arrow"></i>
+                </a>
+
+                <a href="mailto:Yazminzoo@hotmail.com" class="btn">
+                    <span class="btn-icon butter"><i class="fas fa-envelope"></i></span>
+                    <span class="btn-text">
+                        <strong>Correo</strong>
+                        <span>Yazminzoo@hotmail.com</span>
+                    </span>
+                    <i class="fas fa-paw btn-arrow"></i>
+                </a>
+
+                <a href="https://www.instagram.com/" class="btn" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-icon blush"><i class="fab fa-instagram"></i></span>
+                    <span class="btn-text">
+                        <strong>Instagram</strong>
+                        <span>@yazminzoo.vet</span>
+                    </span>
+                    <i class="fas fa-paw btn-arrow"></i>
+                </a>
+
+                <a href="https://www.facebook.com/" class="btn" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-icon cocoa"><i class="fab fa-facebook-f"></i></span>
+                    <span class="btn-text">
+                        <strong>Facebook</strong>
+                        <span>Yazmín Monroy Veterinaria</span>
+                    </span>
+                    <i class="fas fa-paw btn-arrow"></i>
+                </a>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Ciudad+de+Guatemala" class="btn" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-icon coral"><i class="fas fa-location-dot"></i></span>
+                    <span class="btn-text">
+                        <strong>Ubicación</strong>
+                        <span>Ciudad de Guatemala</span>
+                    </span>
+                    <i class="fas fa-paw btn-arrow"></i>
+                </a>
+            </div>
+        </div>
+
+        <p class="footer">
+            <i class="fas fa-paw"></i> AMOR · SALUD · BIENESTAR ANIMAL <i class="fas fa-paw"></i>
+        </p>
+    </main>
+
+    <script>
+        // Huellitas flotantes en el fondo
+        (function createPaws() {
+            const container = document.querySelector('.paws');
+            const icons = ['fa-paw', 'fa-paw', 'fa-bone', 'fa-heart', 'fa-paw'];
+            const colors = ['#d4756e', '#efc3c1', '#f2d38f', '#b9a0b4'];
+            const count = 22;
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('i');
+                el.className = 'fas ' + icons[i % icons.length] + ' float-paw';
+                el.style.left = Math.random() * 100 + '%';
+                el.style.color = colors[i % colors.length];
+                el.style.fontSize = (12 + Math.random() * 16) + 'px';
+                el.style.animationDuration = (14 + Math.random() * 14) + 's';
+                el.style.animationDelay = (Math.random() * 14) + 's';
+                container.appendChild(el);
+            }
+        })();
+
+        // Animación de entrada
+        window.addEventListener('load', () => {
+            document.querySelector('.card').classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
