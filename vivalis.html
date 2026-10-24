@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivalis · Turismo &amp; Viajes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vivalis-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Fondo: destinos + ondas doradas + destellos -->
+    <div class="bg-image"></div>
+    <div class="gold-waves"></div>
+    <div class="sparkles"></div>
+
+    <main class="card">
+        <!-- Banner con logo -->
+        <header class="banner">
+            <img src="vivalis-banner.jpg" alt="Vivalis Turismo &amp; Viajes · Tu mundo, nuestras experiencias">
+        </header>
+
+        <!-- Servicios -->
+        <section class="services">
+            <div class="service"><i class="fas fa-plane"></i><span>Boletos<br>aéreos</span></div>
+            <div class="service"><i class="fas fa-hotel"></i><span>Hoteles</span></div>
+            <div class="service"><i class="fas fa-suitcase-rolling"></i><span>Paquetes<br>turísticos</span></div>
+            <div class="service"><i class="fas fa-ship"></i><span>Cruceros</span></div>
+            <div class="service"><i class="fas fa-shield-halved"></i><span>Seguro<br>de viaje</span></div>
+            <div class="service"><i class="fas fa-earth-americas"></i><span>Tours y<br>excursiones</span></div>
+        </section>
+
+        <div class="motto">
+            <i class="fas fa-earth-americas"></i>
+            EXPLORA · DESCUBRE · VIVE
+        </div>
+
+        <!-- Botones -->
+        <nav class="actions">
+            <a href="https://wa.me/50257962573" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon"><i class="fab fa-whatsapp"></i></span>
+                <span class="btn-text">
+                    <strong>WhatsApp</strong>
+                    <span>+502 5796 2573</span>
+                </span>
+                <i class="fas fa-chevron-right btn-arrow"></i>
+            </a>
+
+            <a href="https://www.instagram.com/vivalisviajes" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon"><i class="fab fa-instagram ig"></i></span>
+                <span class="btn-text">
+                    <strong>Instagram</strong>
+                    <span>@vivalisviajes</span>
+                </span>
+                <i class="fas fa-chevron-right btn-arrow"></i>
+            </a>
+
+            <a href="https://facebook.com/share/1HFUccKuq4" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon"><i class="fab fa-facebook-f fb"></i></span>
+                <span class="btn-text">
+                    <strong>Facebook</strong>
+                    <span>Vivalis Turismo</span>
+                </span>
+                <i class="fas fa-chevron-right btn-arrow"></i>
+            </a>
+
+            <a href="mailto:vivalisturismo@hotmail.com" class="btn">
+                <span class="btn-icon"><i class="fas fa-envelope"></i></span>
+                <span class="btn-text">
+                    <strong>Email</strong>
+                    <span>vivalisturismo@hotmail.com</span>
+                </span>
+                <i class="fas fa-chevron-right btn-arrow"></i>
+            </a>
+
+            <a href="https://maps.app.goo.gl/Grup6LUs2h26KhsW7" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon"><i class="fas fa-location-dot"></i></span>
+                <span class="btn-text">
+                    <strong>Oficina de Reservas</strong>
+                    <span>Ver ubicación en el mapa</span>
+                </span>
+                <i class="fas fa-chevron-right btn-arrow"></i>
+            </a>
+
+            <a href="https://maps.app.goo.gl/RQpgwcfCCmrQdQTNA" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon"><i class="fas fa-map-location-dot"></i></span>
+                <span class="btn-text">
+                    <strong>Plaza Los Girasoles</strong>
+                    <span>Local L12 · Chiquimula, Guatemala</span>
+                </span>
+                <i class="fas fa-chevron-right btn-arrow"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/search/results/all/?keywords=Vivalis%20Turismo%20%26%20Viajes" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon"><i class="fab fa-linkedin-in li"></i></span>
+                <span class="btn-text">
+                    <strong>LinkedIn</strong>
+                    <span>Vivalis Turismo &amp; Viajes</span>
+                </span>
+                <i class="fas fa-chevron-right btn-arrow"></i>
+            </a>
+        </nav>
+
+        <p class="footer">
+            <i class="fas fa-plane-departure"></i>
+            TU MUNDO, NUESTRAS EXPERIENCIAS
+        </p>
+    </main>
+
+    <script>
+        // Destellos dorados flotantes
+        (function createSparkles() {
+            const container = document.querySelector('.sparkles');
+            const count = 34;
+            for (let i = 0; i < count; i++) {
+                const s = document.createElement('span');
+                s.className = 'spark';
+                s.style.left = Math.random() * 100 + '%';
+                s.style.top = (100 + Math.random() * 20) + '%';
+                s.style.animationDuration = (10 + Math.random() * 14) + 's';
+                s.style.animationDelay = (Math.random() * 12) + 's';
+                const size = 2 + Math.random() * 3;
+                s.style.width = size + 'px';
+                s.style.height = size + 'px';
+                container.appendChild(s);
+            }
+        })();
+
+        // Animación de entrada
+        window.addEventListener('load', () => {
+            document.querySelector('.card').classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
